@@ -1,0 +1,60 @@
+<!-- @author Sebastian Mark -->
+<div style="height: 100vh;">
+    <mat-toolbar color = "primary" class="mat-elevation-z8">
+
+      <!-- Airplane icon -->
+          <span><mat-icon>computer</mat-icon>PC Guide Site</span>
+
+          <!-- Space between the word and icon -->
+          <span class="menu-spacer"></span>
+          <div fxShow="true" fxHide.lt-md>
+
+
+            <!-- Main navbar (not in mobile view) -->
+            <a mat-button routerLink=""><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>Home</a>
+
+            <!-- menu button -->
+            <button mat-raised-button color = "accent" [matMenuTriggerFor]="resources">Building Guide</button>
+            <mat-menu #resources="matMenu">
+
+              <button mat-menu-item routerLink="">Where to start</button>
+              <button mat-menu-item routerLink="">What are these parts?</button>
+              <button mat-menu-item routerLink="">Organization Resources</button>
+            </mat-menu>
+
+            <!-- Navbar routing to each page -->
+            <a mat-raised-button color = "accent" routerLink="">Pandemic History</a>
+          </div>
+
+          <!-- collapsible navbar starts here -->
+          <!-- Mobile view trigger menu option -->
+          <div fxShow = "true" fxHide.gt-sm="true">
+            <a (click)="sidenav.toggle()">Menu</a>
+          </div>
+      </mat-toolbar>
+      <mat-sidenav-container fxFlexFill>
+        <mat-sidenav #sidenav fxLayout = "column">
+            <div fxLayout = "column">
+
+            <a mat-button routerLink="" (click)="sidenav.close()"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>Home</a>
+
+            <!-- Routing to each page in mobile view  -->
+            <div class = "drop_down">
+            <button mat-button [matMenuTriggerFor]="airports" routerLink="airports">Build Guide</button>
+            <mat-menu #airports="matMenu">
+              <button mat-menu-item routerLink="">Where to start</button>
+              <button mat-menu-item routerLink="">What are these parts?</button>
+              <button mat-menu-item routerLink="">Organization Resources</button>
+            </mat-menu>
+          </div>
+            <a mat-raised-button color = "primary" routerLink="" (click)="sidenav.close()">Pandemic History</a>
+            <a mat-button routerLink="" (click)="sidenav.close()">About</a>
+        </div>
+      </mat-sidenav>
+        <mat-sidenav-content fxFlexFill>
+            <!-- collapsible navbar ends here -->
+
+          <router-outlet></router-outlet>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+      </div>
