@@ -11,19 +11,19 @@
 
 
             <!-- Main navbar (not in mobile view) -->
-            <a mat-button routerLink=""><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>Home</a>
+           <a mat-button routerLink="/"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>Home</a>
 
             <!-- menu button -->
             <button mat-raised-button color = "accent" [matMenuTriggerFor]="resources">Building Guide</button>
             <mat-menu #resources="matMenu">
 
-              <button mat-menu-item routerLink="">Where to start</button>
-              <button mat-menu-item routerLink="">What are these parts?</button>
-              <button mat-menu-item routerLink="">Organization Resources</button>
+              <button mat-menu-item routerLink="/start">Where to start</button>
+              <button mat-menu-item routerLink="/parts">What are these parts?</button>
+              <button mat-menu-item routerLink="/resources">Building resources</button>
             </mat-menu>
 
             <!-- Navbar routing to each page -->
-            <a mat-raised-button color = "accent" routerLink="">Pandemic History</a>
+            <a mat-raised-button color = "accent" routerLink="/story">Pandemic History</a>
           </div>
 
           <!-- collapsible navbar starts here -->
@@ -36,19 +36,18 @@
         <mat-sidenav #sidenav fxLayout = "column">
             <div fxLayout = "column">
 
-            <a mat-button routerLink="" (click)="sidenav.close()"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>Home</a>
+            <a mat-button routerLink="/" (click)="sidenav.close()"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>Home</a>
 
             <!-- Routing to each page in mobile view  -->
             <div class = "drop_down">
-            <button mat-button [matMenuTriggerFor]="airports" routerLink="airports">Build Guide</button>
-            <mat-menu #airports="matMenu">
-              <button mat-menu-item routerLink="">Where to start</button>
-              <button mat-menu-item routerLink="">What are these parts?</button>
-              <button mat-menu-item routerLink="">Organization Resources</button>
+            <button mat-button [matMenuTriggerFor]="drop">Build Guide</button>
+            <mat-menu #drop="matMenu">
+              <button mat-menu-item routerLink="/start">Where to start</button>
+              <button mat-menu-item routerLink="/parts">What are these parts?</button>
+              <button mat-menu-item routerLink="/resources">Organization Resources</button>
             </mat-menu>
           </div>
-            <a mat-raised-button color = "primary" routerLink="" (click)="sidenav.close()">Pandemic History</a>
-            <a mat-button routerLink="" (click)="sidenav.close()">About</a>
+            <a mat-raised-button color = "primary" routerLink="/story" (click)="sidenav.close()">Pandemic History</a>
         </div>
       </mat-sidenav>
         <mat-sidenav-content fxFlexFill>

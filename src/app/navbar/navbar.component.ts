@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { Router,RouterOutlet } from '@angular/router';
+import { Router,RouterOutlet, RouterLink } from '@angular/router';
 import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
 import { MatCommonModule} from '@angular/material/core';
 import {MatButtonModule} from "@angular/material/button"
@@ -19,7 +19,7 @@ import {MatMenuModule} from '@angular/material/menu';
   selector: 'app-navbar',
   standalone: true,
   templateUrl: './navbar.component.html',
-  imports: [RouterOutlet, NavbarComponent, MatSidenav, MatSidenavModule, 
+  imports: [RouterOutlet,RouterLink, NavbarComponent, MatSidenav, MatSidenavModule, 
     MatToolbarModule, MatIconModule, MatButtonModule, MatListModule, MatInputModule,
   MatAutocompleteModule, MatSelectModule, MatChipsModule, MatCommonModule,MatMenuModule],
   styleUrls: ['./navbar.component.scss']
